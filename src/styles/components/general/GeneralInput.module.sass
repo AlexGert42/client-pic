@@ -1,0 +1,23 @@
+@use '../../mixins' as m
+@use '../../config/Colors.module.sass' as c
+
+
+.container
+    position: relative
+    padding: 22px 20px 14px 45px
+    background-color: c.$beta
+    border-bottom: 2px solid c.$alpha
+
+.input
+    font-size: 16px
+    background: transparent
+    width: calc(100% - 65px)
+    color: c.$epsilon
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active 
+  -webkit-box-shadow: 0 0 0px 10em c.$beta inset !important
+

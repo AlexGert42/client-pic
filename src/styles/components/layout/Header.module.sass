@@ -1,0 +1,55 @@
+@use '../../mixins' as m
+@use '../../config/Colors.module.sass' as c
+
+.container
+    padding: 20px 0 10px 0
+    background-color: c.$alpha
+    box-shadow: 0px 4px 20px c.$alpha
+
+.wrapper 
+    @include m.media(phone, tablet)
+        @include m.flex($fd: column)
+    @include m.media(laptop)
+        @include m.flex($jc: space-between)
+    @include m.media(desktop)
+        @include m.flex($ai: center, $jc: space-between)
+
+.logo
+    @include m.flex($ai: center)
+    width: 100px
+    height: 60px
+
+
+.menu
+    @include m.media(phone, tablet, laptop)
+        @include m.flex($fd: column-reverse)
+    @include m.media(desktop)
+        @include m.flex($ai: center, $jc: space-between)
+
+
+.search
+    @include m.media(phone, tablet, laptop)
+        margin-top: 30px 
+    @include m.media(desktop)
+        margin-right: 100px
+    
+.nav
+    @include m.media(phone, tablet)
+        @include m.flex($ai: center, $jc: space-between)
+    @include m.media(laptop, desktop)
+        @include m.flex($ai: center, $jc: flex-end)
+  
+
+.logout 
+    cursor: pointer
+    font-size: 16px
+    color: c.$psi
+    margin-bottom: -7px
+
+
+
+
+
+
+
+
