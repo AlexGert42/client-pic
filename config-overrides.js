@@ -8,7 +8,8 @@ module.exports = function override(config, env) {
         '@utils': 'src/utils',
         '@context': 'src/context',
         '@api': 'src/api',
-        '@assets': 'src/assets'
+        '@assets': 'src/assets',
+        '@config': 'src/config'
     })(config)
     return config
 }

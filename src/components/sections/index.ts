@@ -1,0 +1,1 @@
+export { default as SectionAuth } from '@components/sections/SectionAuth'

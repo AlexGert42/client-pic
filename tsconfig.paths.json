@@ -8,7 +8,8 @@
             "@utils/*": ["src/utils/*"],
             "@context/*": ["src/context/*"],
             "@api/*": ["src/api/*"],
-            "@assets/*": ["src/assets/*"]
+            "@assets/*": ["src/assets/*"],
+            "@config/*": ["src/config"]
         },
     }
 }

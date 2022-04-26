@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom"
-import { PageLogin, PageProfile, PageSettings} from "@components/pages"
+import { PageAuth, PageProfile, PageSettings} from "@components/pages"
 
 
-const App = () => {
+const GeneralApp = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<PageProfile />} />
-        <Route path="/login" element={<PageLogin />} />
+        <Route path="/auth" element={<PageAuth />} />
         <Route path="/settings" element={<PageSettings />} />
       </Routes>
     </>
   )
 }
 
-export default App
+export default GeneralApp

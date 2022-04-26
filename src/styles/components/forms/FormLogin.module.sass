@@ -1,0 +1,50 @@
+@use '../../mixins' as m
+@use '../../config/Colors.module.sass' as c
+
+.container
+    margin: 100px auto
+    
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        width: 410px
+
+.input 
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        padding: 10px 0
+        @include m.flex($fd: row-reverse, $jc: center)
+        & + .input 
+            margin-top: 50px
+
+.btn__password
+    width: 24px
+
+.details
+    @include m.flex($jc: space-between, $ai: center)
+    margin: 22px 0 40px 0
+
+.remember
+    color: c.$phi
+    @include m.flex($ai: center)
+    
+.remember_icon
+    width: 24px
+    margin-right: 9px
+
+.remember__lable
+    font-size: 16px
+
+.forgot
+    color: c.$phi
+
+.btn
+    width: 100%
+    padding: 12px 
+    background-color: c.$chi
+    color: c.$psi
+    font-size: 30px 
+    font-weight: 700
+
+    
