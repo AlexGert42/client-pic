@@ -2,3 +2,40 @@
 @use '../../config/Colors.module.sass' as c
 
 .container
+    margin-top: 100px
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+
+
+.nav
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        margin: 0 auto
+        @include m.flex($jc: center)
+
+
+.btn
+    margin-right: 15px
+    border-bottom: 2px solid c.$phi
+    color: c.$phi
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        
+        width: 400px
+        padding: 20px
+        font-size: 26px
+        font-weight: 700
+       
+    & + .btn
+        margin-left: 15px
+        margin-right: 0
+
+    &.active
+        border-bottom: 2px solid c.$chi
+        color: c.$chi
+      
+
+
