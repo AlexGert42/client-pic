@@ -11,7 +11,7 @@ import { GeneralButtonAuth } from '@components/general'
 type TypeSectionAuthProps = TypeClassNames
 
 const SectionAuth = ({ classNames }: TypeSectionAuthProps) => {
-    const [activeLogin, setActiveLogin] = useState<boolean>(true)
+    const [activeLogin, setActiveLogin] = useState<boolean>(false)
 
     return (
         <section className={cn(stls.container, classNames)}>

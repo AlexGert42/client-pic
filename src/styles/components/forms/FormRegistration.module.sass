@@ -2,3 +2,61 @@
 @use '../../config/Colors.module.sass' as c
 
 .container
+    margin: 0 auto
+    
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        width: 450px
+
+.input 
+    width: 100%
+    &:first-child
+        margin-top: 0
+    @include m.media(phone, tablet)
+
+    @include m.media(laptop, desktop)
+        @include m.flex($fd: row-reverse, $jc: center)
+        padding: 10px 0  
+        margin-top: 50px
+
+
+.names
+    @include m.media(phone, tablet)
+    @include m.media(laptop, desktop)
+        @include m.flex($ai: center, $jc: space-between)
+        .input
+            margin-right: 5px
+            &:first-child
+                margin-top: 50px
+            & + .input
+                margin-left: 5px
+                margin-right: 0
+
+.btn__password
+    width: 24px
+
+
+.btn
+    width: 100%
+    margin-top: 40px
+    padding: 12px 
+    background-color: c.$chi
+    color: c.$psi
+    font-size: 30px 
+    font-weight: 700
+
+.text
+    margin: 40px 0
+    text-align: center
+
+
+.btn__continue
+    width: 100%
+    padding: 12px 
+    color: c.$chi
+    font-size: 30px 
+    border: 2px solid c.$chi
+    font-weight: 700
+
+

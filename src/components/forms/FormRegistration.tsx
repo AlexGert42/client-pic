@@ -18,9 +18,55 @@ const FormRegistration = ({ classNames }: TypeFormRegistrationProps) => {
 
     return (
         <form className={cn(stls.container, classNames)} onSubmit={submitHandler}>
-           
-
-fdsfdsfdss
+            <GeneralInputAuth
+                classNames={[stls.input]}
+                type={'email'}
+                autoComplete={'new-password'}
+                placeholder={'Email'}
+            />
+            <div className={stls.names}>
+                <GeneralInputAuth
+                    classNames={[stls.input]}
+                    type={'text'}
+                    autoComplete={'new-password'}
+                    placeholder={'First Name'}
+                />
+                <GeneralInputAuth
+                    classNames={[stls.input]}
+                    type={'text'}
+                    autoComplete={'new-password'}
+                    placeholder={'Name'}
+                />
+            </div>
+            <GeneralInputAuth
+                classNames={[stls.input]}
+                type={readPassword ? 'password' : 'text'}
+                autoComplete={'new-password'}
+                placeholder={'Password'}
+            >
+                {
+                    readPassword ?
+                        <button className={stls.btn__password} onClick={() => setReadPassword(false)}><IconTrackingText color={'phi'} /></button>
+                        :
+                        <button className={stls.btn__password} onClick={() => setReadPassword(true)}><IconUnTrackingText color={'phi'} /></button>
+                }
+            </GeneralInputAuth>
+            <GeneralInputAuth
+                classNames={[stls.input]}
+                type={readPassword ? 'password' : 'text'}
+                autoComplete={'new-password'}
+                placeholder={'Confirm password'}
+            >
+                {
+                    readPassword ?
+                        <button className={stls.btn__password} onClick={() => setReadPassword(false)}><IconTrackingText color={'phi'} /></button>
+                        :
+                        <button className={stls.btn__password} onClick={() => setReadPassword(true)}><IconUnTrackingText color={'phi'} /></button>
+                }
+            </GeneralInputAuth>
+            <GeneralButtonAuth classNames={[stls.btn]}>Sign Up</GeneralButtonAuth>
+            <p className={stls.text}>or continue with</p>
+            <GeneralButtonAuth classNames={[stls.btn__continue]}>VContacte</GeneralButtonAuth>
         </form>
     )
 }
