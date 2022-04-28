@@ -11,12 +11,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
 root.render(
-  // <Provider store={context}>
+  <Provider store={context}>
     <BrowserRouter>
       <React.StrictMode>
         <GeneralApp />
       </React.StrictMode>
     </BrowserRouter>
-  // </Provider>
+  </Provider>
 )
 

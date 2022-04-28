@@ -4,7 +4,7 @@ const authorization = () => {
     if (Cookies.get('token')) {
         return {
             headers: {
-                Authorization: `Bearer ${Cookies.get('token')}`
+                Authorization: `Token ${Cookies.get('token')}`
             }
         }
     } else {
