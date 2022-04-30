@@ -9,7 +9,7 @@ import { useActions } from '@utils/index'
 
 
 type TypeLoginData = {
-    email: string,
+    email: string
     password: string
 }
 
@@ -45,22 +45,20 @@ const FormLogin = ({ classNames }: TypeFormLoginProps) => {
             <GeneralInputAuth
                 classNames={[stls.input]}
                 type={'email'}
-                // autoComplete={'new-password'}
                 placeholder={'Email'}
                 onChange={e => setData({...data, email: e})}
             />
             <GeneralInputAuth
                 classNames={[stls.input]}
-                type={readPassword ? 'password' : 'text'}
-                // autoComplete={'new-password'}
+                type={readPassword ? 'text' : 'password'}
                 placeholder={'Password'}
                 onChange={e => setData({...data, password: e})}
             >
-                {
+                 {
                     readPassword ?
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(false)}><IconTrackingText color={'phi'} /></button>
+                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(false)}><IconUnTrackingText color={'phi'} /></button>
                         :
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(true)}><IconUnTrackingText color={'phi'} /></button>
+                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(true)}><IconTrackingText color={'phi'} /></button> 
                 }
             </GeneralInputAuth>
             <div className={stls.details}>

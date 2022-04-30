@@ -1,5 +1,5 @@
 import apiAuth from "@api/ApiAuth";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 
 
@@ -37,6 +37,22 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (data: any, { 
     }
 })
 
+export const RegisterUser = createAsyncThunk('auth/RegisterUser', async (data: any, { getState, dispatch, rejectWithValue }) => {
+    try {
+       
+        const res = await apiAuth.RegisterUser(data)
+        if (res.status === 201) {
+            return true
+        }
+       
+    } catch (error) {
+       
+        return rejectWithValue({ errors: error })
+    }
+})
+
+
+
 
 
 
@@ -48,7 +64,10 @@ const initialState = {
     first_name: '',
     user_name: '',
 
-    
+    login: true,
+
+    create_user: false,
+ 
 }
 
 
@@ -56,7 +75,9 @@ const slice = createSlice({
     name: 'auth',
     initialState: initialState,
     reducers: {
-        
+        LoginOrRegister(state, action: PayloadAction<{value: boolean}>) {
+            state.login = action.payload.value
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(authUser.fulfilled, (state, action) => {
@@ -81,10 +102,19 @@ const slice = createSlice({
                 }
             }
         });
+        builder.addCase(RegisterUser.fulfilled, (state, action) => {
+            if (action.payload) {
+                return {
+                    ...state,
+                    login: true,
+                    create_user: true
+                }
+            }
+        });
     }
 })
 
 
 export const authReducer = slice.reducer
 
-export const {  } = slice.actions
+export const { LoginOrRegister } = slice.actions
