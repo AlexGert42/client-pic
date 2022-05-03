@@ -32,10 +32,6 @@ const FormLogin = ({ classNames }: TypeFormLoginProps) => {
 
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(data) 
-
-        const res = await axios.post('http://127.0.0.1:8000/api/v1/auth/token/login/', data)
-        console.log(res);
         loginUser(data)
 
     }

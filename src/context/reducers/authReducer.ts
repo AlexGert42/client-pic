@@ -51,6 +51,39 @@ export const RegisterUser = createAsyncThunk('auth/RegisterUser', async (data: a
     }
 })
 
+export const ResetPassword = createAsyncThunk('auth/ResetPassword', async (data: any, { getState, dispatch, rejectWithValue }) => {
+    try {
+       
+        const res = await apiAuth.ResetPassword(data)
+        if (res.status === 200) {
+            console.log(res)
+            return
+            
+        }
+       
+    } catch (error) {
+       
+        return rejectWithValue({ errors: error })
+    }
+})
+
+export const ResetPasswordConfirm = createAsyncThunk('auth/ResetPasswordConfirm', async (data: any, { getState, dispatch, rejectWithValue }) => {
+    try {
+       
+        const res = await apiAuth.ResetPasswordConfirm(data)
+        if (res.status === 200) {
+            console.log(res)
+            return
+            
+        }
+       
+    } catch (error) {
+       
+        return rejectWithValue({ errors: error })
+    }
+})
+
+
 
 
 
@@ -108,6 +141,20 @@ const slice = createSlice({
                     ...state,
                     login: true,
                     create_user: true
+                }
+            }
+        });
+        builder.addCase(ResetPassword.fulfilled, (state, action) => {
+            if (action.payload) {
+                return {
+                    ...state,
+                }
+            }
+        });
+        builder.addCase(ResetPasswordConfirm.fulfilled, (state, action) => {
+            if (action.payload) {
+                return {
+                    ...state,
                 }
             }
         });

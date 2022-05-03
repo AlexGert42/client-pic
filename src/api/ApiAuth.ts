@@ -18,10 +18,19 @@ const apiAuth = {
         return await this.authUser()
     },  
     async RegisterUser(data: any) {
-        console.log('api', data);
-        
         return await instance.post('users/', data)
     },  
+    async ResetPassword(data: any) {
+        console.log(data);
+        
+        return await instance.post('users/reset_password/', data)
+    },
+    async ResetPasswordConfirm(data: any) {
+        console.log(data);
+        
+        return await instance.post('users/reset_password_confirm/', data)
+    },
+
 }
 
-export default apiAuth
+export default apiAuth                                                                                                 

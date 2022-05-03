@@ -1,5 +1,5 @@
 import store from '@context/store'
-import { authUser, loginUser, RegisterUser, LoginOrRegister } from '@context/reducers/authReducer'
+import { authUser, loginUser, RegisterUser, LoginOrRegister, ResetPassword, ResetPasswordConfirm, } from '@context/reducers/authReducer'
 
 
 export const ActionCreators = {
@@ -7,6 +7,8 @@ export const ActionCreators = {
     loginUser,
     RegisterUser,
     LoginOrRegister,
+    ResetPassword,
+    ResetPasswordConfirm,
 }
 
 export const context = store
