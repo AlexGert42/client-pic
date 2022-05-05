@@ -1,3 +1,13 @@
 export {default as GeneralApp} from '@components/general/GeneralApp'
 export {default as GeneralInputAuth} from '@components/general/GeneralInputAuth'
 export {default as GeneralButtonAuth} from '@components/general/GeneralButtonAuth'
+
+export {default as GeneralInputPassword} from '@components/general/GeneralInputPassword'
+// export {default as GeneralInputAuth} from '@components/general/GeneralInputAuth'
+// export {default as GeneralButtonAuth} from '@components/general/GeneralButtonAuth'
+// export {default as GeneralApp} from '@components/general/GeneralApp'
+// export {default as GeneralInputAuth} from '@components/general/GeneralInputAuth'
+// export {default as GeneralButtonAuth} from '@components/general/GeneralButtonAuth'
+// export {default as GeneralApp} from '@components/general/GeneralApp'
+// export {default as GeneralInputAuth} from '@components/general/GeneralInputAuth'
+// export {default as GeneralButtonAuth} from '@components/general/GeneralButtonAuth'

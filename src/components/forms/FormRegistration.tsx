@@ -1,8 +1,7 @@
 import stls from '@styles/components/forms/FormRegistration.module.sass'
 import cn from 'classnames'
 import { TypeClassNames } from "@type/index"
-import { GeneralInputAuth, GeneralButtonAuth } from '@components/general'
-import { IconCheckboxFalse, IconCheckboxTrue, IconTrackingText, IconUnTrackingText } from '@components/icons'
+import { GeneralInputAuth, GeneralButtonAuth, GeneralInputPassword } from '@components/general'
 import { useState } from 'react'
 import { useActions } from '@utils/index'
 
@@ -14,17 +13,10 @@ type TypeRegisterData = {
     re_password: string
 }
 
-
-
 type TypeFormRegistrationProps = TypeClassNames
 
 const FormRegistration = ({ classNames }: TypeFormRegistrationProps) => {
-    // const { errorLogin } = useTypeSelector(state => state.auth)
     const { RegisterUser } = useActions()
-
-
-    const [readPassword, setReadPassword] = useState<boolean>(false)
-    const [remember, setRemember] = useState<boolean>(true)
 
     const [data, setData] = useState<TypeRegisterData>({
         email: '',
@@ -66,36 +58,18 @@ const FormRegistration = ({ classNames }: TypeFormRegistrationProps) => {
                     onChange={e => setData({ ...data, user_name: e })}
                 />
             </div>
-            <GeneralInputAuth
+            <GeneralInputPassword
                 classNames={[stls.input]}
-                type={readPassword ? 'text' : 'password'}
                 autoComplete={'new-password'}
                 placeholder={'Password'}
                 onChange={e => setData({ ...data, password: e })}
-            >
-                {
-                    readPassword ?
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(false)}><IconUnTrackingText color={'phi'} /></button>
-                        :
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(true)}><IconTrackingText color={'phi'} /></button>
-
-                }
-            </GeneralInputAuth>
-            <GeneralInputAuth
+            />
+            <GeneralInputPassword
                 classNames={[stls.input]}
-                type={readPassword ? 'text' : 'password'}
                 autoComplete={'new-password'}
                 placeholder={'Confirm password'}
                 onChange={e => setData({ ...data, re_password: e })}
-            >
-                {
-                    readPassword ?
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(false)}><IconUnTrackingText color={'phi'} /></button>
-                        :
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(true)}><IconTrackingText color={'phi'} /></button>
-
-                }
-            </GeneralInputAuth>
+            />  
             <GeneralButtonAuth classNames={[stls.btn]}>Sign Up</GeneralButtonAuth>
             <p className={stls.text}>or continue with</p>
             <GeneralButtonAuth type={'button'} classNames={[stls.btn__continue]}>VContacte</GeneralButtonAuth>

@@ -1,15 +1,20 @@
 import { Route, Routes } from "react-router-dom"
-import { PageAuth, PageProfile, PageSettings, PageResetPassword, ResetPasswordConfirm} from "@components/pages"
+import { PageProfile, PageSettings, PageResetPassword, PageResetPasswordConfirm, PageLogin, PageRegister} from "@components/pages"
 
 
 const GeneralApp = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<PageProfile />} />
-        <Route path="/auth" element={<PageAuth />} />
+       
+        <Route path="/login" element={<PageLogin/>} />
+        <Route path="/registration" element={<PageRegister/>} />
+
         <Route path="/reset_password" element={<PageResetPassword />} />
-        <Route path='/password/reset/confirm/:uid/:token' element={<ResetPasswordConfirm />} />
+        <Route path='/password/reset/confirm/:uid/:token' element={<PageResetPasswordConfirm />} />
+
+
+        <Route path="/" element={<PageProfile />} />
         <Route path="/settings" element={<PageSettings />} />
       </Routes>
     </>

@@ -13,7 +13,6 @@ type TypeGeneralInputAuthProps = TypeClassNames & {
     autoComplete?: 'new-password' | 'off'
     value?: string
     children?: any
-    // TypeChildren & ReactElement<any, any>
 }
 
 const GeneralInputAuth = ({ classNames, children, placeholder, onChange, type, autoComplete, value = '' }: TypeGeneralInputAuthProps) => {

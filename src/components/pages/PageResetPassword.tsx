@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { TypeClassNames } from '@type/index'
 import { useEffect, useState } from 'react'
 import { useActions } from '@utils/index'
+import { Wrapper } from '@components/layout'
 
 
 type TypePageResetPasswordProps = TypeClassNames
@@ -22,10 +23,11 @@ const PageResetPassword = ({classNames }: TypePageResetPasswordProps) => {
 
     return (
         <main className={cn(stls.container, classNames)}>
-            <form action="POST" onSubmit={onSubmit}>
-                <input type="email" onChange={e => setEmail(e.target.value)} placeholder='Email' />
-
-            </form>
+            <Wrapper>
+                <form action="POST" onSubmit={onSubmit}>
+                    <input type="email" onChange={e => setEmail(e.target.value)} placeholder='Email' />
+                </form>
+            </Wrapper>
         </main>
     )
 }

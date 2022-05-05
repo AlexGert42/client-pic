@@ -1,11 +1,12 @@
 import stls from '@styles/components/forms/FormLogin.module.sass'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import cn from 'classnames'
 import { TypeClassNames } from "@type/index"
-import { GeneralInputAuth, GeneralButtonAuth } from '@components/general'
-import { IconCheckboxFalse, IconCheckboxTrue, IconTrackingText, IconUnTrackingText } from '@components/icons'
-import { useState } from 'react'
-import axios from 'axios'
+import { GeneralInputAuth, GeneralButtonAuth, GeneralInputPassword } from '@components/general'
+import { IconCheckboxFalse, IconCheckboxTrue } from '@components/icons'
 import { useActions } from '@utils/index'
+
 
 
 type TypeLoginData = {
@@ -17,10 +18,7 @@ type TypeLoginData = {
 type TypeFormLoginProps = TypeClassNames
 
 const FormLogin = ({ classNames }: TypeFormLoginProps) => {
-    // const { errorLogin } = useTypeSelector(state => state.auth)
-    const { loginUser, authUser } = useActions()
-
-    const [readPassword, setReadPassword] = useState<boolean>(false)
+    const { loginUser } = useActions()
     const [remember, setRemember] = useState<boolean>(true)
     const [data, setData] = useState<TypeLoginData>({
         email: '',
@@ -33,7 +31,6 @@ const FormLogin = ({ classNames }: TypeFormLoginProps) => {
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         loginUser(data)
-
     }
 
     return (
@@ -42,36 +39,31 @@ const FormLogin = ({ classNames }: TypeFormLoginProps) => {
                 classNames={[stls.input]}
                 type={'email'}
                 placeholder={'Email'}
-                onChange={e => setData({...data, email: e})}
+                onChange={e => setData({ ...data, email: e })}
             />
-            <GeneralInputAuth
+            <GeneralInputPassword
                 classNames={[stls.input]}
-                type={readPassword ? 'text' : 'password'}
                 placeholder={'Password'}
-                onChange={e => setData({...data, password: e})}
-            >
-                 {
-                    readPassword ?
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(false)}><IconUnTrackingText color={'phi'} /></button>
-                        :
-                        <button className={stls.btn__password} type={'button'} onClick={() => setReadPassword(true)}><IconTrackingText color={'phi'} /></button> 
-                }
-            </GeneralInputAuth>
+                onChange={e => setData({ ...data, password: e })}
+            />
             <div className={stls.details}>
-                <GeneralButtonAuth 
-                classNames={[stls.remember]}
-                type={'button'}
-                onClick={() => setRemember(!remember)}
+                <GeneralButtonAuth
+                    classNames={[stls.remember]}
+                    type={'button'}
+                    onClick={() => setRemember(!remember)}
                 >
                     {
-                        remember ? 
-                        <IconCheckboxTrue classNames={[stls.remember_icon]} color={'phi'}/>
-                        :
-                        <IconCheckboxFalse classNames={[stls.remember_icon]} color={'phi'}/>
+                        remember ?
+                            <IconCheckboxTrue classNames={[stls.remember_icon]} color={'phi'} />
+                            :
+                            <IconCheckboxFalse classNames={[stls.remember_icon]} color={'phi'} />
                     }
                     <p className={stls.remember__lable}>Remember Me</p>
                 </GeneralButtonAuth>
-                <GeneralButtonAuth classNames={[stls.forgot]} type={'button'}>Forgot password?</GeneralButtonAuth>
+                <Link to={'/reset_password'}>
+                    <GeneralButtonAuth classNames={[stls.forgot]} type={'button'}>Forgot password?</GeneralButtonAuth>
+                </Link>
+                
             </div>
             <GeneralButtonAuth classNames={[stls.btn]}>Login</GeneralButtonAuth>
 

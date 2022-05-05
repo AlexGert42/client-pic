@@ -31,6 +31,8 @@ const apiAuth = {
         return await instance.post('users/reset_password_confirm/', data)
     },
 
+    
+
 }
 
 export default apiAuth                                                                                                 
