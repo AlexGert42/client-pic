@@ -1,7 +1,7 @@
 import stls from '@styles/components/pages/PageResetPasswordConfirm.module.sass'
 import cn from 'classnames'
 import { TypeClassNames } from '@type/index'
-import SectionResetPasswordConfirm from '@components/sections/SectionResetPasswordConfirm'
+import { SectionResetPasswordConfirm } from '@components/sections'
 
 
 type TypePageResetPasswordConfirmProps = TypeClassNames
@@ -9,7 +9,7 @@ type TypePageResetPasswordConfirmProps = TypeClassNames
 const PageResetPasswordConfirm = ({ classNames }: TypePageResetPasswordConfirmProps) => {
     return (
         <main className={cn(stls.container, classNames)}>
-           <SectionResetPasswordConfirm/>
+            <SectionResetPasswordConfirm />
         </main>
     );
 };
